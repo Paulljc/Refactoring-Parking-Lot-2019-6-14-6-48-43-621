@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Manager {
+public class Manager implements Parkable{
 
     private List<ParkingLot> manageParkingLots = new ArrayList<>();
     private List<ParkingBoy> manageParkingBoys = new ArrayList<>();
-
-
 
     public Manager(List<ParkingLot> manageParkingLots, List<ParkingBoy> manageParkingBoys) {
         this.manageParkingLots = manageParkingLots;
@@ -17,7 +15,9 @@ public class Manager {
     }
 
     public void addParkingBoy(ParkingBoy parkingBoy) {
-        manageParkingBoys.add(parkingBoy);
+        if (!manageParkingBoys.contains(parkingBoy)){
+            manageParkingBoys.add(parkingBoy);
+        }
     }
 
     public ParkingTicket specifyBoyParkCar(ParkingBoy parkingBoy, Car car) {
@@ -41,6 +41,7 @@ public class Manager {
         }
     }
 
+    @Override
     public ParkingTicket fetchTicketByCar(Car car) {
         for (ParkingLot parkingLot : manageParkingLots) {
             if (!parkingLot.isParkingFull()) {
@@ -51,6 +52,7 @@ public class Manager {
         return null;
     }
 
+    @Override
     public Car fetchCarByTickey(ParkingTicket parkingTicket) {
         if (parkingTicket == null) {
             System.out.print("Please provide your parking ticket.");
