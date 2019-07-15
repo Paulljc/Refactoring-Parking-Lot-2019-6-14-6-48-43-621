@@ -3,7 +3,7 @@ package com.parkinglot;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ParkingAttendant {
+public abstract class ParkingAttendant implements Parkable{
 
     protected List<ParkingLot> parkingLots = new ArrayList<>();
 
