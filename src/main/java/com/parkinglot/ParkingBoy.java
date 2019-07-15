@@ -1,7 +1,5 @@
 package com.parkinglot;
 
-import java.util.ArrayList;
-
 public class ParkingBoy extends ParkingAttendant{
 
     @Override
