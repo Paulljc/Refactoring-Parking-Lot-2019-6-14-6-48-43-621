@@ -4,19 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Manager extends ParkingBoy {
+public class Manager {
 
     private List<ParkingLot> manageParkingLots = new ArrayList<>();
     private List<ParkingBoy> manageParkingBoys = new ArrayList<>();
 
 
-    public Manager(ArrayList<ParkingLot> parkingLots) {
-        super(parkingLots);
-        this.manageParkingLots = parkingLots;
-    }
 
-    public Manager(ArrayList<ParkingLot> parkingLots, List<ParkingLot> manageParkingLots, List<ParkingBoy> manageParkingBoys) {
-        super(parkingLots);
+    public Manager(List<ParkingLot> manageParkingLots, List<ParkingBoy> manageParkingBoys) {
         this.manageParkingLots = manageParkingLots;
         this.manageParkingBoys = manageParkingBoys;
     }
@@ -46,38 +41,24 @@ public class Manager extends ParkingBoy {
         }
     }
 
-    @Override
     public ParkingTicket fetchTicketByCar(Car car) {
-        for (int i = 0; i < manageParkingLots.size(); i++) {
-            if (!manageParkingLots.get(i).isParkingFull()) {
-                return manageParkingLots.get(i).generateTicketByCar(car);
-            } else {
-                if (i + 1 < manageParkingLots.size()) {
-                    continue;
-                } else {
-                    break;
-                }
+        for (ParkingLot parkingLot : manageParkingLots) {
+            if (!parkingLot.isParkingFull()) {
+                return parkingLot.generateTicketByCar(car);
             }
         }
         System.out.print("Not enough position.");
         return null;
     }
 
-    @Override
     public Car fetchCarByTickey(ParkingTicket parkingTicket) {
         if (parkingTicket == null) {
             System.out.print("Please provide your parking ticket.");
             return null;
         }
-        for (int i = 0; i < manageParkingLots.size(); i++) {
-            if (manageParkingLots.get(i).checkCarIsInParkingLot(parkingTicket)) {
-                return manageParkingLots.get(i).TakeOutCarByTicket(parkingTicket);
-            } else {
-                if (i + 1 < manageParkingLots.size()) {
-                    continue;
-                } else {
-                    break;
-                }
+        for (ParkingLot parkingLot : manageParkingLots) {
+            if (parkingLot.checkCarIsInParkingLot(parkingTicket)) {
+                return parkingLot.TakeOutCarByTicket(parkingTicket);
             }
         }
         System.out.print("Unrecognized parking ticket.");
