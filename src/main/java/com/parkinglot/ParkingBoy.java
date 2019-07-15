@@ -2,14 +2,9 @@ package com.parkinglot;
 
 import java.util.ArrayList;
 
-public class ParkingBoy {
+public class ParkingBoy extends ParkingAttendant{
 
-    ArrayList<ParkingLot> parkingLots = new ArrayList<>();
-
-    public ParkingBoy(ArrayList<ParkingLot> parkingLots) {
-        this.parkingLots = parkingLots;
-    }
-
+    @Override
     public ParkingTicket fetchTicketByCar(Car car) {
         for (ParkingLot parkingLot : parkingLots) {
             if (!parkingLot.isParkingFull()) {
@@ -17,20 +12,6 @@ public class ParkingBoy {
             }
         }
         System.out.print("Not enough position.");
-        return null;
-    }
-
-    public Car fetchCarByTickey(ParkingTicket parkingTicket) {
-        if (parkingTicket == null) {
-            System.out.print("Please provide your parking ticket.");
-            return null;
-        }
-        for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.checkCarIsInParkingLot(parkingTicket)) {
-                return parkingLot.TakeOutCarByTicket(parkingTicket);
-            }
-        }
-        System.out.print("Unrecognized parking ticket.");
         return null;
     }
 

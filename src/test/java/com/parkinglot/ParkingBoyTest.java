@@ -32,7 +32,7 @@ public class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot(10, 10, new HashMap<>(0), new HashMap<>(0));
         ArrayList<ParkingLot> parkingLots = new ArrayList<>(1);
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy();
         //when
         String parkingTicket = parkingBoy.fetchTicketByCar(car).getCarLicense();
         //then
@@ -51,7 +51,7 @@ public class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot(10, 10, ticketMatchCar, ticketIsUsed);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>(1);
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy();
         //when
         Car fetchCar = parkingBoy.fetchCarByTickey(parkingTicket);
         //then
@@ -66,7 +66,7 @@ public class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot(10, 10, new HashMap<>(0), new HashMap<>(0));
         ArrayList<ParkingLot> parkingLots = new ArrayList<>(1);
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy();
         //when
         String parkingTicket1 = parkingBoy.fetchTicketByCar(car1).getCarLicense();
         String parkingTicket2 = parkingBoy.fetchTicketByCar(car2).getCarLicense();
@@ -91,7 +91,7 @@ public class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot(10, 10, ticketMatchCar, ticketIsUsed);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>(1);
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy();
         //when
         Car fetchCar1 = parkingBoy.fetchCarByTickey(parkingTicket1);
         Car fetchCar2 = parkingBoy.fetchCarByTickey(parkingTicket2);
@@ -112,7 +112,7 @@ public class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot(10, 10, ticketMatchCar, ticketIsUsed);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>(1);
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy();
         //when
         Car fetchCar = parkingBoy.fetchCarByTickey(parkingTicket2);
         //then
@@ -132,7 +132,7 @@ public class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot(10, 10, ticketMatchCar, ticketIsUsed);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>(1);
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy();
         //when
         Car fetchCar = parkingBoy.fetchCarByTickey(parkingTicket2);
         //then
@@ -147,7 +147,7 @@ public class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot(0, 10, new HashMap<>(0), new HashMap<>(0));
         ArrayList<ParkingLot> parkingLots = new ArrayList<>(1);
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy();
         //when
         ParkingTicket parkingTicket = parkingBoy.fetchTicketByCar(car);
         //then
@@ -164,7 +164,7 @@ public class ParkingBoyTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>(1);
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy();
         //when
         String parkingTicket = parkingBoy.fetchTicketByCar(car).getCarLicense();
         //then
@@ -187,7 +187,7 @@ public class ParkingBoyTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>(1);
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy();
         //when
         Car fetchCar = parkingBoy.fetchCarByTickey(parkingTicket);
         //then
