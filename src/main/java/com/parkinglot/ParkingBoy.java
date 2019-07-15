@@ -11,15 +11,9 @@ public class ParkingBoy {
     }
 
     public ParkingTicket fetchTicketByCar(Car car) {
-        for (int i = 0; i < parkingLots.size(); i++) {
-            if (!parkingLots.get(i).isParkingFull()) {
-                return parkingLots.get(i).generateTicketByCar(car);
-            } else {
-                if (i + 1 < parkingLots.size()) {
-                    continue;
-                } else {
-                    break;
-                }
+        for (ParkingLot parkingLot : parkingLots) {
+            if (!parkingLot.isParkingFull()) {
+                return parkingLot.generateTicketByCar(car);
             }
         }
         System.out.print("Not enough position.");
@@ -31,15 +25,9 @@ public class ParkingBoy {
             System.out.print("Please provide your parking ticket.");
             return null;
         }
-        for (int i = 0; i < parkingLots.size(); i++) {
-            if (parkingLots.get(i).checkCarIsInParkingLot(parkingTicket)) {
-                return parkingLots.get(i).TakeOutCarByTicket(parkingTicket);
-            } else {
-                if (i + 1 < parkingLots.size()) {
-                    continue;
-                } else {
-                    break;
-                }
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.checkCarIsInParkingLot(parkingTicket)) {
+                return parkingLot.TakeOutCarByTicket(parkingTicket);
             }
         }
         System.out.print("Unrecognized parking ticket.");
