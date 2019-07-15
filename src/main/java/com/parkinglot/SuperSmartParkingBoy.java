@@ -5,11 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SuperSmartParkingBoy extends ParkingBoy {
-
-    public SuperSmartParkingBoy(ArrayList<ParkingLot> parkingLots) {
-        super(parkingLots);
-    }
+public class SuperSmartParkingBoy extends ParkingAttendant {
 
     @Override
     public ParkingTicket fetchTicketByCar(Car car) {
@@ -22,10 +18,4 @@ public class SuperSmartParkingBoy extends ParkingBoy {
             return null;
         }
     }
-
-    @Override
-    public Car fetchCarByTickey(ParkingTicket parkingTicket) {
-        return super.fetchCarByTickey(parkingTicket);
-    }
-
 }
